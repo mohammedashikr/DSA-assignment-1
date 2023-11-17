@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>question 1</title>
+    </head>
+    <body>
+        
+
+        <script>
+            var arr =[1,2,3,4,5]
+            b=arr.length
+            var count=0;
+            var k=6
+            for(var i=0;i<b;i++){
+                for(var j=i+1;j<b;j++){
+                    u=arr[i]+arr[j]
+                    if(arr[i]+arr[j]==k){
+                        count++
+                    }
+                }
+
+            }
+            console.log(" pair count is",count);
+        </script>
+    </body>
+</html>

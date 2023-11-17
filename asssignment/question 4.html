@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>question 4</title>
+    </head>
+    <body>
+        
+
+        <script>
+            
+            var a='abcabcdabc'
+            var b=a.length
+
+            for(var i=0;i<b;i++){
+                var c=a[i]
+                if(a.indexOf(c)==i && a.indexOf(c,i+1)==-1){
+                    console.log("first non repeating char",a[i])
+                    
+                }
+            }
+
+        </script>

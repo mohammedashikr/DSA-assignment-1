@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>question 9</title>
+    </head>
+    <body>
+        <script>
+            class Stack {
+            constructor() {
+                this.items = [];
+            }
+
+            push(element) {
+                this.items.push(element);
+            }
+
+            pop() {
+                if (this.isEmpty()) {
+                return "Underflow";
+                }
+                return this.items.pop();
+            }
+
+            peek() {
+                return this.items[this.items.length - 1];
+            }
+
+            isEmpty() {
+                return this.items.length === 0;
+            }
+
+            reverse() {
+                if (this.isEmpty()) {
+                return "Stack is empty";
+                }
+                const reversedStack = [];
+                while (!this.isEmpty()) {
+                reversedStack.push(this.pop());
+                }
+                this.items = reversedStack;
+                return this.items;
+            }
+            }
+
+            const stack = new Stack();
+            stack.push(1);
+            stack.push(2);
+            stack.push(3);
+            stack.push(4);
+            stack.push(5);
+            console.log("Original Stack:", stack.items); 
+            stack.reverse();
+            console.log("Reversed Stack:", stack.items);
+        </script>

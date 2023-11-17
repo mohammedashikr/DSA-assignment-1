@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>question 9</title>
+    </head>
+    <body>
+        <script>
+            
+        class Stack {
+        constructor() {
+            this.items = [];
+            this.minStack = []; 
+        }
+
+
+        push(element) {
+            this.items.push(element);
+
+            if (this.minStack.length === 0 || element <= this.minStack[this.minStack.length - 1]) {
+            this.minStack.push(element);
+            }
+        }
+
+        pop() {
+            if (this.items.length === 0) return "Underflow";
+
+            if (this.items[this.items.length - 1] === this.minStack[this.minStack.length - 1]) {
+            this.minStack.pop();
+            }
+            
+            return this.items.pop();
+        }
+
+
+        getMin() {
+            if (this.minStack.length === 0) return "Stack is empty";
+            return this.minStack[this.minStack.length - 1];
+        }
+
+        peek() {
+            return this.items[this.items.length - 1];
+        }
+
+        isEmpty() {
+            return this.items.length === 0;
+        }
+
+        printStack() {
+            let stackString = "";
+            for (let i = 0; i < this.items.length; i++) {
+            stackString += this.items[i] + " ";
+            }
+            console.log(stackString);
+        }
+        }
+
+        const stack = new Stack();
+
+        stack.push(10);
+        stack.push(9);
+        stack.push(8);
+        stack.push(5);
+        stack.push(6);
+
+        console.log("Original Stack:");
+        stack.printStack(); 
+
+        console.log("Smallest element in the stack:", stack.getMin()); 
+
+        </script>

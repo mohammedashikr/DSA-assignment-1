@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>question 6</title>
+    </head>
+    <body>
+        
+
+        <script>
+            
+            function isOperator(char) {
+            return ['+', '-', '*', '/'].includes(char);
+            }
+
+            function postfixToPrefix(postfixExp) {
+            const stack = [];
+
+            for (let i = 0; i < postfixExp.length; i++) {
+                const currentChar = postfixExp[i];
+
+                if (!isOperator(currentChar)) {
+                stack.push(currentChar);
+                } else {
+                const operand2 = stack.pop();
+                const operand1 = stack.pop();
+
+                const prefixExpression = currentChar + operand1 + operand2;
+                stack.push(prefixExpression);
+                }
+            }
+
+            return stack.pop();
+            }
+            const postfixExpression = '34+5*';
+            const prefixExpression = postfixToPrefix(postfixExpression);
+            console.log('Postfix Expression:', postfixExpression);
+            console.log('Prefix Expression:', prefixExpression);
+
+
+
+        </script>

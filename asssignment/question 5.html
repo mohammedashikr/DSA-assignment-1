@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>question 5</title>
+    </head>
+    <body>
+        
+
+        <script>
+
+        function toh(n, source_rod, destination_rod, aux_rod){
+        if(n>0){
+            toh(n - 1, source_rod, aux_rod, destination_rod); 
+            console.log("Move disc from " + n + " source rod " + source_rod +" to destination rod " + destination_rod +"<br/>"); 
+                toh(n - 1, aux_rod, destination_rod, source_rod); 
+        }
+
+        }
+
+        toh(3,"A","C","B");
+        </script>

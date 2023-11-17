@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>question 7</title>
+    </head>
+    <body>
+        
+
+        <script>
+
+            function isOperator(char) 
+            {
+            return ['+', '-', '*', '/'].includes(char);
+            }
+            function prefixToInfix(expression) 
+            {
+            let stack = [];
+            for (let i = expression.length - 1; i >= 0; i--) {
+                if (isOperator(expression[i])) {
+                let operand1 = stack.pop();
+                let operand2 = stack.pop();
+                let infix = `(${operand1}${expression[i]}${operand2})`;
+                stack.push(infix);
+                } 
+                else {
+                stack.push(expression[i]);
+                }
+            }
+            return stack.pop();
+            }
+            let prefixExpression = "*-AB/CD";
+            let infixExpression = prefixToInfix(prefixExpression);
+            console.log("prefix Expression:",prefixExpression)
+            console.log("Infix Expression:", infixExpression);
+
+        </script>
